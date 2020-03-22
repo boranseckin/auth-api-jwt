@@ -6,6 +6,8 @@ node_js:
 cache: yarn
 env:
   - PORT=3000
+before_script:
+  - yarn lint
 script:
   - yarn test:coverage
 after_success:
