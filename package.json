@@ -1,0 +1,82 @@
+{
+  "name": "auth-api-jwt",
+  "version": "1.0.0",
+  "main": "dist/src/app.js",
+  "author": "Boran Seckin",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.5",
+    "tunnel-ssh": "^4.1.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.3",
+    "@types/jest": "^25.1.4",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/method-override": "^0.0.31",
+    "@types/mongoose": "^5.7.6",
+    "@types/node": "^13.9.1",
+    "@types/supertest": "^2.0.8",
+    "@types/tunnel-ssh": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "jest": "^25.1.0",
+    "mongodb-memory-server": "^6.4.1",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "start": "node --inspect=5858 -r ts-node/register ./src/app.ts",
+    "start:watch": "nodemon",
+    "prebuild": "yarn run lint",
+    "build": "tsc",
+    "pretest": "yarn run lint",
+    "test": "yarn run jest --runInBand",
+    "test:coverage": "yarn run jest --runInBand --coverage",
+    "test:open": "open ./coverage/lcov-report/index.html"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "yarn run start",
+    "ext": "ts"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/tests"
+    ],
+    "setupFiles": [
+      "dotenv/config"
+    ]
+  }
+}
