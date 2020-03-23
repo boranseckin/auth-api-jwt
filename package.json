@@ -48,7 +48,8 @@
   },
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "start": "node --inspect=5858 -r ts-node/register ./src/app.ts",
+    "start": "node ./dist/src/app.js",
+    "start:dev": "node --inspect=5858 -r ts-node/register ./src/app.ts",
     "start:watch": "nodemon",
     "prebuild": "yarn run lint",
     "build": "tsc",
@@ -67,7 +68,7 @@
     "watch": [
       "src"
     ],
-    "exec": "yarn run start",
+    "exec": "yarn run start:dev",
     "ext": "ts"
   },
   "jest": {
