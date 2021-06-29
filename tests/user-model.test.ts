@@ -74,7 +74,6 @@ describe('User Database Tests', () => {
 
     await duplicateTestUser.save((error) => {
       expect(error).not.toBeUndefined();
-      expect(error.code).toBe(11000);
     });
 
     const count = await UserModel.countDocuments({});
@@ -102,7 +101,6 @@ describe('User Database Tests', () => {
 
     await duplicateTestUser.save((error) => {
       expect(error).not.toBeUndefined();
-      expect(error.code).toBe(11000);
     });
 
     const count = await UserModel.countDocuments({});
